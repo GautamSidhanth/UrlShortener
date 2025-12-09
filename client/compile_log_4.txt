@@ -1,0 +1,7 @@
+src/components/Layout.tsx(7,7): error TS6133: 'Layout' is declared but its value is never read.
+src/components/UrlData.tsx(6,33): error TS2307: Cannot find module '../utils/Utils' or its corresponding type declarations.
+src/components/UrlForm.tsx(2,10): error TS2724: '"@mui/material"' has no exported member named 'Grid2'. Did you mean 'Grid'?
+src/components/UrlForm.tsx(5,28): error TS2307: Cannot find module '../utils/Utils' or its corresponding type declarations.
+src/router.tsx(3,8): error TS1192: Module '"D:/URL Shortner/client/src/components/Layout"' has no default export.
+src/router.tsx(5,36): error TS2307: Cannot find module './pages/HomePage' or its corresponding type declarations.
+src/router.tsx(6,35): error TS2307: Cannot find module './pages/UrlPage' or its corresponding type declarations.
