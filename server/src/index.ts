@@ -18,6 +18,18 @@ fastify.register(fastifyCors);
 fastify.register(
   async (instance: FastifyInstance) => {
     instance.register(urlsRoutes);
+    
+    instance.get('/health', async () => {
+      // mongoose.connection.readyState: 0 disconnected, 1 connected, 2 connecting, 3 disconnecting
+      const mongoState = mongoose?.connection?.readyState ?? 'unknown';
+      return {
+        status: 'ok',
+        uptime: process.uptime(),
+        services,
+        mongooseReadyState: mongoState,
+        timestamp: new Date().toISOString(),
+      };
+    });
   },
   { prefix: '/api' }
 );
@@ -59,17 +71,7 @@ const retryConnect = async (
   }
 };
 
-fastify.get('/health', async () => {
-  // mongoose.connection.readyState: 0 disconnected, 1 connected, 2 connecting, 3 disconnecting
-  const mongoState = mongoose?.connection?.readyState ?? 'unknown';
-  return {
-    status: 'ok',
-    uptime: process.uptime(),
-    services,
-    mongooseReadyState: mongoState,
-    timestamp: new Date().toISOString(),
-  };
-});
+
 
 const shutdown = async (signal: string) => {
   fastify.log.info({ signal }, 'Shutdown initiated');
