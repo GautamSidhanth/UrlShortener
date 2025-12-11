@@ -47,3 +47,14 @@ mongo-data/
 redis-data/
 zookeeper-data/
 zookeeper-datalog/
+
+# Local Logs & Info
+server_logs.txt
+nginx_logs.txt
+ports.txt
+ports_ascii.txt
+.gemini/
+
+# Certbot volumes (if local)
+certbot-etc/
+certbot-var/
